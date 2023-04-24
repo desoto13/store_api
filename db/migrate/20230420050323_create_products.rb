@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :name, index: { unique: true }, null: false
       t.string :sku, index: { unique: true }, null: false
       t.integer :inventory_quantity, null: false
+      t.datetime :inventory_updated_time
       t.timestamps
     end
   end

@@ -17,7 +17,7 @@ module Api
         @product = @store.products.build(product_params)
 
         if @product.save
-          render json: { notice: "Successfully created #{@product.name}" }, status: 201
+          render json: { product: @product, notice: "Successfully created #{@product.name}" }, status: 201
         else
           render json: { error: @product.error }, status: 422
         end
@@ -25,7 +25,7 @@ module Api
 
       def update
         if @product.update(product_params)
-          render json: { notice: "Successfully updated #{@product.name}" }, status: 200
+          render json: { product: @product, notice: "Successfully updated #{@product.name}" }, status: 200
         else
           render json: { error: @product.error }, status: 422
         end
