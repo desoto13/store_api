@@ -10,7 +10,11 @@ module Api
       end
 
       def show
-        render json: { product: @product }, status: 200
+        if @product.present?
+          render json: { product: @product }, status: 200
+        else
+          render json: { error: "The product you are requesting is not available" }, status: 422
+        end    
       end
 
       def create
